@@ -21,6 +21,22 @@ element.addEventListener('touchmove', function(event) {
 
 
 
+
+element.addEventListener("touchenter", function( event ) {
+  if ( event.target.className == "droppable" ) {
+      event.target.style.background = "purple";
+  }
+
+}, false);
+
+element.addEventListener("touchleave", function( event ) {
+  if ( event.target.className == "droppable" ) {
+      event.target.style.background = "";
+  }
+
+}, false);
+
+
 // drop Box
 
 for (var i= 0; i < dropZones.length; i++){
