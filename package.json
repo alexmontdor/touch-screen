@@ -1,0 +1,17 @@
+{
+  "name": "docker-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "A LANDREAU",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.14.9",
+    "path": "^0.12.7"
+  }
+}
