@@ -1,7 +1,7 @@
 var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
-alert('start dragging');
+alert('start dragging', dropZones.length);
 // Start Dragging bozo
 element.addEventListener('touchstart', function(event) {
   var touch = event.targetTouches[0];
@@ -15,8 +15,8 @@ element.addEventListener('touchmove', function(event) {
   var touch = event.targetTouches[0];
   var target;
   
-  if (event.target.target) {
-    target = event.target.target;
+  if (touch.target) {
+    target = touch.target;
     target.style.background = "purple";
   }
   else {
@@ -36,10 +36,11 @@ element.addEventListener('touchmove', function(event) {
 // Start Dragging bozo
 element.addEventListener('touchend', function(event) {
   var touch = event.targetTouches[0];
+  alert (touch.target)
   var target;
   
-  if (event.target.target) {
-    target = event.target.target;
+  if (touch.target) {
+    target = touch.target;
     target.innerText = "Dropped with finger";
   }
 
