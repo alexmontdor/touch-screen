@@ -6,8 +6,8 @@ var element = document.getElementById('drag-bozo');
 element.addEventListener('touchstart', function(event) {
   var touch = event.targetTouches[0];
   
-  offsetX= element.pageX - touch.pageX;
-  offsetY= element.pageY - touch.pagey;
+  offsetX= element.offsetLeft - touch.pageX;
+  offsetY= element.offsetTop - touch.pageY;
 
   var span = document.getElementById('pos');
   span.innerText = offsetX +' '+ offsetY + ' ' + element.pageY
