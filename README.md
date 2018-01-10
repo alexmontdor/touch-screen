@@ -1,10 +1,2 @@
-# docker-project
-A Docker / NodeJS  environment project
-
-
-
-
-## References
-
-[http://paislee.io/the-ultimate-nodejs-development-setup-with-docker/]
-
+# touch-screen
+Small code to be used on touch screen
