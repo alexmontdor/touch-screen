@@ -3,10 +3,10 @@
 
 CONTAINER_NAME=NODE_SERVER_DEV  
 TEMP_DIR=$(dirname `pwd`)
-echo ${TEMP_DIR}
+
 WEBSITE_ASSETS=$(dirname $TEMP_DIR)/public
 
-echo ${WEBSITE_ASSETS}
+echo "Public in "${WEBSITE_ASSETS}
 
 docker stop ${CONTAINER_NAME}  
 docker rm ${CONTAINER_NAME}
