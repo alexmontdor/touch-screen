@@ -23,9 +23,9 @@ element.addEventListener('touchmove', function(event) {
 
 // drop Box
 
-dropZones.forEach(zone => {
-  zone.addEventListener('drop', function(event) {
+for (var i= 0; i < dropZones.length; i++){
+  dropZones[i].addEventListener('drop', function(event) {
     event.preventDefault();
     zone.innerText ="Boz's Dropped";
   })
-});
+}
