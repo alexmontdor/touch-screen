@@ -1,4 +1,4 @@
-var element = document.getElementById('drag-bozzo');
+var element = document.getElementById('drag-bozo');
 
 // Move Bozzo
 
