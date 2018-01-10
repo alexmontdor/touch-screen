@@ -14,6 +14,7 @@ element.addEventListener('touchstart', function(event) {
 element.addEventListener('touchmove', function(event) {
   var touch = event.targetTouches[0];
   var target;
+  
   if (event.target.target) {
     target = event.target.target;
     target.style.background = "purple";
@@ -49,6 +50,6 @@ element.addEventListener('touchend', function(event) {
 for (var i= 0; i < dropZones.length; i++){
   dropZones[i].addEventListener('drop', function(event) {
     event.preventDefault();
-    zone.innerText ="Boz's Dropped";
+    dropZones[i].innerText ="Boz's Dropped";
   })
 }
