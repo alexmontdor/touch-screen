@@ -50,6 +50,6 @@ element.addEventListener('touchend', function(event) {
 for (var i= 0; i < dropZones.length; i++){
   dropZones[i].addEventListener('drop', function(event) {
     event.preventDefault();
-    dropZones[i].innerText ="Boz's Dropped";
+    dropZones[i].innerHTML="Boz's Dropped";
   })
 }
