@@ -2,7 +2,7 @@
 #!/bin/bash
 
 CONTAINER_NAME=NODE_SERVER_DEV  
-WEBSITE_ASSETS=/public
+WEBSITE_ASSETS=../../public
 
 docker stop ${CONTAINER_NAME}  
 docker rm ${CONTAINER_NAME}
