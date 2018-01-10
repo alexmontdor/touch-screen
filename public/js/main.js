@@ -1,6 +1,6 @@
 var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
-
+var dropZones = document.getElementsByClassName('droppable');
 
 // Start Dragging bozo
 element.addEventListener('touchstart', function(event) {
@@ -21,4 +21,11 @@ element.addEventListener('touchmove', function(event) {
 
 
 
-// drop Bozo
+// drop Box
+
+dropZones.forEach(zone => {
+  zone.addEventListener('drop', function(event) {
+    event.preventDefault();
+    zone.innerText ="Boz's Dropped";
+  })
+});
