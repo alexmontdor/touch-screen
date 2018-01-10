@@ -1,0 +1,117 @@
+@media (max-width: 400px) {
+
+    .container { 
+        position: relative;
+
+    }
+    
+    .bozo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-image: url('img/bozo.jpg') 100px 100px;
+    }
+    
+    
+    .box-shop {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+     }
+    .box-circus {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        right: 0;
+     }
+    .box-jail { 
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .container { 
+        position: relative;
+
+    }
+    
+    .bozo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-image: url('img/bozo.jpg') 100px 100px;
+    }
+    
+    
+    .box-shop {
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+     }
+    .box-circus {
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        top: 0;
+        right: 0;
+     }
+    .box-jail { 
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+}
+
+@media (max-width: 1000px) {
+
+    .container { 
+        position: relative;
+
+    }
+    
+    .bozo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-image: url('img/bozo.jpg') 150px 150px;
+    }
+    
+    
+    .box-shop {
+        height: 300px;
+        width: 300px;
+        position: absolute;
+        top: 0;
+        left: 0;
+     }
+    .box-circus {
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        top: 0;
+        right: 0;
+     }
+    .box-jail { 
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+}
