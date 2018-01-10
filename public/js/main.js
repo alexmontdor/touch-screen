@@ -14,8 +14,8 @@ element.addEventListener('touchstart', function(event) {
 element.addEventListener('touchmove', function(event) {
   var touch = event.targetTouches[0];
   var target;
-  if (event.targetTouches.length>1) {
-    target = event.targetTouches[1];
+  if (event.target) {
+    target = event.target;
     target.style.background = "purple";
   }
   else {
@@ -37,8 +37,8 @@ element.addEventListener('touchend', function(event) {
   var touch = event.targetTouches[0];
   var target;
   
-  if (event.targetTouches.length>1) {
-    target = event.targetTouches[1];
+  if (event.target) {
+    target = event.target;
     target.innerText = "Dropped with finger";
   }
 
