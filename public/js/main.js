@@ -1,7 +1,5 @@
 var element = document.getElementById('drag-bozzo');
 
-
-
 // Move Bozzo
 
 element.addEventListener('touchmove', function(event) {
