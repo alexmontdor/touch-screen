@@ -13,29 +13,36 @@ element.addEventListener('touchstart', function(event) {
 // Move Bozo
 element.addEventListener('touchmove', function(event) {
   var touch = event.targetTouches[0];
+  var target;
+  if (event.targetTouches.length>1) {
+    target = event.targetTouches[1];
+    target.style.background = "purple";
+  }
+  else {
+    if (target)
+    {
+      target.style.background = "";
+      target = null
+    }
+  }
+
   element.style.left = touch.pageX + offsetX + 'px';
   element.style.top = touch.pageY + offsetY + 'px';
+
   event.preventDefault();
 }, false);
 
-
-
-
-
-element.addEventListener("touchenter", function( event ) {
-  if ( event.target.className == "droppable" ) {
-      event.target.style.background = "purple";
+// Start Dragging bozo
+element.addEventListener('touchend', function(event) {
+  var touch = event.targetTouches[0];
+  var target;
+  
+  if (event.targetTouches.length>1) {
+    target = event.targetTouches[1];
+    target.innerText = "Dropped with finger";
   }
 
-}, false);
-
-element.addEventListener("touchleave", function( event ) {
-  if ( event.target.className == "droppable" ) {
-      event.target.style.background = "";
-  }
-
-}, false);
-
+},false);
 
 // drop Box
 
