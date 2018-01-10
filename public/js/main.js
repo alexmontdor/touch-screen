@@ -36,28 +36,16 @@ element.addEventListener('touchmove', function(event) {
 // Start Dragging bozo
 element.addEventListener('touchend', function(event) {
   var touch = event.targetTouches[0];
-  alert ("display" + touch.target.target)
+  alert ("Fire!" )
   var target;
   
-  if (touch.target) {
-    target = touch.target;
+  if (touch.target.target) {
+    target = touch.target.target;
     target.innerText = "Dropped with finger";
   }
 
 },false);
 
-// Start Dragging bozo
-element.addEventListener('touchleave', function(event) {
-  var touch = event.targetTouches[0];
-  alert ("display" + touch.target.target)
-  var target;
-  
-  if (touch.target) {
-    target = touch.target;
-    target.innerText = "Dropped with finger";
-  }
-
-},false);
 
 
 // drop Box
