@@ -8,6 +8,9 @@ element.addEventListener('touchstart', function(event) {
   
   offsetX= element.pageX - touch.pageX;
   offsetY= element.pageY - touch.pagey;
+
+  var span = document.getElementById('pos');
+  span.innerText = offsetX +' '+ offsetY + ' ' + element.pageY
 },false);
 
 // Move Bozo
