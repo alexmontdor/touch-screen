@@ -38,11 +38,18 @@ element.addEventListener('touchend', function(event) {
   var touch = event.targetTouches[0];
   alert ("Fire!" )
   var target;
-  
-  if (touch.target.target) {
-    target = touch.target.target;
-    target.innerText = "Dropped with finger";
+  if (touch) {
+    alert('touch')
   }
+  if (touch.target) {
+    alert('touch.target')
+  }
+  if (touch.target.target) {
+    alert('touch.target.target')
+  }
+
+  var span = document.getElementById("pos")
+  span.innerText = JSON.stringify(event)
 
 },false);
 
