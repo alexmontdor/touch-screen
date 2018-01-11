@@ -17,8 +17,8 @@ function handleDragStart (event) {
   console.log ('event', event);
   var el = (event.targetTouches)? event.targetTouches[0] : event;
   
-  offsetX= element.offsetLeft - el.clientX;
-  offsetY= element.offsetTop - el.clientY;
+  offsetX= element.offsetLeft - el.pageX;
+  offsetY= element.offsetTop - el.pageY;
 
   //event.dataTransfer.effectAllowed = "move"; 
   event.dataTransfer.setData ('text', "Bozo is moved");        // compulsory with FireFox : text/plain
@@ -26,8 +26,8 @@ function handleDragStart (event) {
 
 function handleDrag (event) {
   var el = (event.targetTouches)? event.targetTouches[0] : event;
-  element.style.left = el.clientX + offsetX + 'px';
-  element.style.top = el.clientY + offsetY + 'px';
+  element.style.left = el.pageX + offsetX + 'px';
+  element.style.top = el.pageY + offsetY + 'px';
   
 }
 
