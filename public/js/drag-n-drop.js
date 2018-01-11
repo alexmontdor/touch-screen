@@ -14,7 +14,7 @@ for (var i=0; i<dropZones.length; i++) {
 
 
 function handleDragStart (event) {
-  console.log ('event', event.pageX, element.offsetLeft);
+  
   var el = (event.targetTouches)? event.targetTouches[0] : event;
   
   offsetX= element.offsetLeft - el.pageX;
@@ -25,6 +25,7 @@ function handleDragStart (event) {
 }
 
 function handleDrag (event) {
+  console.log ('event',event, event.pageX, element.offsetLeft);
   var el = (event.targetTouches)? event.targetTouches[0] : event;
   element.style.left = el.pageX + offsetX + 'px';
   element.style.top = el.pageY + offsetY + 'px';
