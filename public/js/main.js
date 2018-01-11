@@ -17,7 +17,8 @@ element.addEventListener('touchstart', function(event) {
   
   offsetX= element.offsetLeft - touch.pageX;
   offsetY= element.offsetTop - touch.pageY;
-  element.createEvent('dragstart', dragStartElement)
+  element.createEvent('dragstart')
+  element.initdragstart('dragstart',event)
 
 }, false);
 
