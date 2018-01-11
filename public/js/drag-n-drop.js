@@ -15,19 +15,19 @@ for (var i=0; i<dropZones.length; i++) {
 
 function handleDragStart (event) {
   console.log ('event', event);
-  var el = (event.targetTouches)? event.targetTouches[0] : event.target;
+  var el = (event.targetTouches)? event.targetTouches[0] : event;
   
-  offsetX= element.offsetLeft - el.pageX;
-  offsetY= element.offsetTop - el.pageY;
+  offsetX= element.offsetLeft - el.clientX;
+  offsetY= element.offsetTop - el.clientY;
 
   //event.dataTransfer.effectAllowed = "move"; 
   event.dataTransfer.setData ('text', "Bozo is moved");        // compulsory with FireFox : text/plain
 }
 
 function handleDrag (event) {
-  var el = (event.targetTouches)? event.targetTouches[0] : event.target;
-  element.style.left = el.pageX + offsetX + 'px';
-  element.style.top = el.pageY + offsetY + 'px';
+  var el = (event.targetTouches)? event.targetTouches[0] : event;
+  element.style.left = el.clientX + offsetX + 'px';
+  element.style.top = el.clientY + offsetY + 'px';
   
 }
 
