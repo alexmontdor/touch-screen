@@ -25,10 +25,10 @@ function handleDragStart (event) {
 }
 
 function handleDrag (event) {
-  console.log ('event',event, event.pageX, element.offsetLeft);
+  console.log ('event', event.clientX, element.offsetLeft);
   var el = (event.targetTouches)? event.targetTouches[0] : event;
-  element.style.left = el.pageX + offsetX + 'px';
-  element.style.top = el.pageY + offsetY + 'px';
+  element.style.left = el.clientX + offsetX + 'px';
+  element.style.top = el.clientY + offsetY + 'px';
   
 }
 
