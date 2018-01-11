@@ -139,3 +139,7 @@
 
 .droppable {
 }
+
+.enterDropZone {
+    background: lime;
+}
