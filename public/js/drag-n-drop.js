@@ -70,11 +70,8 @@ element.addEventListener('touchmove', function(event) {
             e.stopImmediatePropagation();
             e.preventDefault();
             if (dragSrcEl != this) {
-                dragSrcEl.innerHTML = e.target.innerHTML;
-                
+              this.innerHTML = e.dataTransfer.getData('text');
             }
-            else
-            this.innerHTML = e.dataTransfer.getData('text');
         }
 }
 
