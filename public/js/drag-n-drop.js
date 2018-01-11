@@ -3,6 +3,7 @@ var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
 
 element.addEventListener('dragstart', handleDragStart);
+element.addEventListener('dragend', handleDragEnd);
 
 for (var i=0; i<dropZones.length; i++) {
   dropZones[i].addEventListener('dragenter', handleDragEnter);
@@ -25,6 +26,12 @@ function handleDragEnter (event) {
 function handleDragLeave (event) {
   event.preventDefault();
   event.target.classList.remove('enterDropZone');
+}
+
+function handleDragEnd (event) {
+  event.preventDefault();
+  
+  console.log ('End of move', event); // check if we can get the coordinates
 }
 
 function handleDrop (event) {
