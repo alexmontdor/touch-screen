@@ -27,7 +27,8 @@ function handleDragStart (event) {
 function handleDrag (event) {
   event.preventDefault();
 
-  
+  var el = event;
+  console.log (el.clientX)
 }
 
 
@@ -44,7 +45,8 @@ function handleDragLeave (event) {
 function handleDragEnd (event) {
   event.preventDefault();
   
-  var el = (event.targetTouches)? event.targetTouches[0] : event;
+  var el = event;
+  console.log (el)
   element.style.left = el.clientX + offsetX + 'px';
   element.style.top = el.clientY + offsetY + 'px';
   
