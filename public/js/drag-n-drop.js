@@ -25,10 +25,7 @@ function handleDragStart (event) {
 }
 
 function handleDrag (event) {
-  console.log ('event', event.clientX, element.offsetLeft);
-  var el = (event.targetTouches)? event.targetTouches[0] : event;
-  element.style.left = el.clientX + offsetX + 'px';
-  element.style.top = el.clientY + offsetY + 'px';
+
   
 }
 
@@ -44,8 +41,11 @@ function handleDragLeave (event) {
 }
 
 function handleDragEnd (event) {
+  var el = (event.targetTouches)? event.targetTouches[0] : event;
+  element.style.left = el.clientX + offsetX + 'px';
+  element.style.top = el.clientY + offsetY + 'px';
   event.preventDefault();
-  console.log ('End of move', event); // check if we can get the coordinates
+  
 }
 
 function handleDrop (event) {
