@@ -8,7 +8,7 @@ element.addEventListener('touchstart', function(event) {
   
   offsetX= element.offsetLeft - touch.pageX;
   offsetY= element.offsetTop - touch.pageY;
-},false);
+}, false);
 
 // Move Bozo
 element.addEventListener('touchmove', function(event) {
@@ -23,7 +23,7 @@ element.addEventListener('touchmove', function(event) {
     if (target)
     {
       target.style.background = "";
-      target = null
+      target = null;
     }
   }
 
@@ -35,22 +35,21 @@ element.addEventListener('touchmove', function(event) {
 
 // Start Dragging bozo
 element.addEventListener('touchend', function(event) {
+  event.preventDefault();
   var touch = event.targetTouches[0];
-  alert ("Fire!" )
-  var target;
+  alert ("Fire!" );
   if (touch) {
-    alert('touch')
+    alert('touch');
   }
   if (touch.target) {
-    alert('touch.target')
+    alert('touch.target');
   }
   if (touch.target.target) {
-    alert('touch.target.target')
+    alert('touch.target.target');
   }
 
-  var span = document.getElementById("pos")
-  span.innerText = JSON.stringify(event)
-
+  var span = document.getElementById("pos");
+  span.innerText = JSON.stringify(event);
 },false);
 
 
