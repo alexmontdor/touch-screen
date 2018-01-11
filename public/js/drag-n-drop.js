@@ -19,7 +19,7 @@ function handleDragStart (event) {
   
   offsetX= element.offsetLeft - el.pageX;
   offsetY= element.offsetTop - el.pageY;
-
+console.log (offsetX, offsetY)
   //event.dataTransfer.effectAllowed = "move"; 
   event.dataTransfer.setData ('text', "Bozo is moved");        // compulsory with FireFox : text/plain
 }
@@ -46,7 +46,7 @@ function handleDragEnd (event) {
   event.preventDefault();
   
   var el = event;
-  console.log (el);
+  console.log (el.screenX);
   element.style.left = el.screenX + offsetX + 'px';
   element.style.top = el.screenY + offsetY + 'px';
   
