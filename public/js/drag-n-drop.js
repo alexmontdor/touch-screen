@@ -2,9 +2,9 @@ var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
 
-element.addEventListener('dragstart', dragStartElement, false)
-element.addEventListener('drag', dragElement, false)
-element.addEventListener('dragend', dropElement, false)
+element.addEventListener('dragstart', handleDragStart, false)
+element.addEventListener('dragend', handleDragEnd, false)
+
 
 /**
  * touchstart -> dragstart
@@ -20,8 +20,6 @@ element.addEventListener('touchstart', function(event) {
   
   offsetX= element.offsetLeft - touch.pageX;
   offsetY= element.offsetTop - touch.pageY;
-  element.createEvent('DragEvent')
-  element.initDragEvent('dragstart',event)
 
 }, false);
 
@@ -30,41 +28,53 @@ element.addEventListener('touchmove', function(event) {
   var touch = event.targetTouches[0];
   
   event.preventDefault();
-  element.createEvent('DragEvent')
-  element.initDragEvent('drag',event)
   element.style.left = touch.pageX + offsetX + 'px';
   element.style.top = touch.pageY + offsetY + 'px';
 }, false);
 
-// Start Dragging bozo
-element.addEventListener('touchend', function(event) {
-  event.preventDefault();
-  element.createEvent('dragend', dropElement)
-  
-  var span = document.getElementById("pos");
-  span.innerText = JSON.stringify(event);
-    
 
-/* 
-  if (touch) {
-    alert('touch');
-  }
-  if (touch.target) {
-    alert('touch.target');
-  }
-  if (touch.target.target) {
-    alert('touch.target.target');
-  } 
-*/
+    var dragSrcEl = null;
+    function handleDragStart(e) {
+      var dt = e.dataTransfer;
+      dt.effectAllowed = 'move';
+      dt.setData('text', 'Bozs dragged');
 
-
-},false);
-
-
-
-// drop Box
-
-
+    }
+    function handleDragOver(e) {
+        if (dragSrcEl) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            
+        }
+    }
+    function handleDragEnter(e) {
+        if (dragSrcEl) {
+            e.target.classList.add('over');
+        }
+    }
+    function handleDragLeave(e) {
+        if (dragSrcEl) {
+            e.target.classList.remove('over');
+        }
+    }
+    function handleDragEnd(e) {
+        dragSrcEl = null;
+        /* [].forEach.call(cols, function (col) {
+            col.style.opacity = '';
+            col.classList.remove('over');
+        }); */
+    }
+    function handleDrop(e) {
+        if (dragSrcEl) {
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            if (dragSrcEl != this) {
+                dragSrcEl.innerHTML = e.target.innerHTML;
+                this.innerHTML = e.dataTransfer.getData('text');
+            }
+        }
+}
 
 
 function dragStartElement (event) {
@@ -97,9 +107,5 @@ function dropElement (event) {
 }
 
 for (var i= 0; i < dropZones.length; i++){
-  dropZones[i].addEventListener('mouseover', function(event) {
-    event.preventDefault();
-    
-    this.innerHTML="Boz's Dropped";
-  });
+  dropZones[i].addEventListener('drop', handleDrop);
 }
