@@ -5,7 +5,6 @@ var dropZones = document.getElementsByClassName('droppable');
 element.addEventListener('dragstart', handleDragStart, false)
 element.addEventListener('dragend', handleDragEnd, false)
 
-
 /**
  * touchstart -> dragstart
  * touchmove -> drag
@@ -35,6 +34,7 @@ element.addEventListener('touchmove', function(event) {
 
     var dragSrcEl = null;
     function handleDragStart(e) {
+      dragSrcEl = e.target;
       var dt = e.dataTransfer;
       dt.effectAllowed = 'move';
       dt.setData('text', 'Bozs dragged');
@@ -71,8 +71,10 @@ element.addEventListener('touchmove', function(event) {
             e.preventDefault();
             if (dragSrcEl != this) {
                 dragSrcEl.innerHTML = e.target.innerHTML;
-                this.innerHTML = e.dataTransfer.getData('text');
+                
             }
+            else
+            this.innerHTML = e.dataTransfer.getData('text');
         }
 }
 
