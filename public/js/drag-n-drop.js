@@ -12,7 +12,7 @@ for (var i=0; i<dropZones.length; i++) {
 
 
 function handleDragStart (event) {
-  event.dataTransfert ('text/plain', 'Bozo is moved');        // compulsory with FireFox : text/plain
+  event.dataTransfert.setData ('text/plain', 'Bozo is moved');        // compulsory with FireFox : text/plain
 }
 
 function handleDragEnter (event) {
