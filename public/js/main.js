@@ -2,8 +2,6 @@ var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
 
-alert('start dragging'+ dropZones.length);
-
 
 /**
  * touchstart -> dragstart
@@ -65,14 +63,13 @@ element.addEventListener('touchend', function(event) {
 
 
 function dragStartElement (event) {
-  event.preventDefault();
-  alert ('start dragging element');
+//  alert ('start dragging element');
 }
 
 function dragElement (event) {
   event.preventDefault();
   var target;
-  alert('dragging element');
+ // alert('dragging element');
 
    
   if (event.target.target) {
