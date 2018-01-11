@@ -36,8 +36,12 @@ element.addEventListener('touchmove', function(event) {
 // Start Dragging bozo
 element.addEventListener('touchend', function(event) {
   event.preventDefault();
+  var span = document.getElementById("pos");
+  span.innerText = JSON.stringify(event);
+  
   var touch = event.targetTouches[0];
   alert ("Fire!" );
+/* 
   if (touch) {
     alert('touch');
   }
@@ -46,10 +50,10 @@ element.addEventListener('touchend', function(event) {
   }
   if (touch.target.target) {
     alert('touch.target.target');
-  }
+  } 
+*/
 
-  var span = document.getElementById("pos");
-  span.innerText = JSON.stringify(event);
+
 },false);
 
 
