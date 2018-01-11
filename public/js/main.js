@@ -1,46 +1,47 @@
 var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
+
 alert('start dragging'+ dropZones.length);
+
+
+/**
+ * touchstart -> dragstart
+ * touchmove -> drag
+ * touchend -> dragend
+ * 
+ * if (drag) test drop
+ */
+
 // Start Dragging bozo
 element.addEventListener('touchstart', function(event) {
   var touch = event.targetTouches[0];
   
   offsetX= element.offsetLeft - touch.pageX;
   offsetY= element.offsetTop - touch.pageY;
+  element.createEvent('dragstart', dragStartElement)
+
 }, false);
 
 // Move Bozo
 element.addEventListener('touchmove', function(event) {
   var touch = event.targetTouches[0];
-  var target;
   
-  if (touch.target.target) {
-    target = touch.target.target;
-    target.style.background = "purple";
-  }
-  else {
-    if (target)
-    {
-      target.style.background = "";
-      target = null;
-    }
-  }
-
+  event.preventDefault();
+  element.createEvent('drag', dragElement)
   element.style.left = touch.pageX + offsetX + 'px';
   element.style.top = touch.pageY + offsetY + 'px';
-
-  event.preventDefault();
 }, false);
 
 // Start Dragging bozo
 element.addEventListener('touchend', function(event) {
   event.preventDefault();
+  element.createEvent('dragend', dropElement)
+  
   var span = document.getElementById("pos");
   span.innerText = JSON.stringify(event);
-  
-  var touch = event.targetTouches[0];
-  alert ("Fire!" );
+    
+
 /* 
   if (touch) {
     alert('touch');
@@ -60,8 +61,41 @@ element.addEventListener('touchend', function(event) {
 
 // drop Box
 
+
+
+
+function dragStartElement (event) {
+  event.preventDefault();
+  alert ('start dragging element');
+}
+
+function dragElement (event) {
+  event.preventDefault();
+  var target;
+  alert('dragging element');
+
+   
+  if (event.target.target) {
+    target = touch.target;
+    target.style.background = "purple";
+  }
+  else {
+    if (target)
+    {
+      target.style.background = "";
+      target = null;
+    }
+  }
+
+}
+
+function dropElement (event) {
+  event.preventDefault();
+  alert('dropping element');
+}
+
 for (var i= 0; i < dropZones.length; i++){
-  dropZones[i].addEventListener('drop', function(event) {
+  dropZones[i].addEventListener('mouseover', function(event) {
     event.preventDefault();
     alert('doc dropped');
     dropZones[i].innerHTML="Boz's Dropped";
