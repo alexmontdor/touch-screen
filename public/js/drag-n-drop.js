@@ -6,7 +6,7 @@ var mousePos
 element.addEventListener('dragstart', handleDragStart);
 element.addEventListener('dragend', handleDragEnd);
 element.addEventListener('drag', handleDrag);
-document.addEventListener('mousemouve', getMousePos)
+document.addEventListener('mousemove', getMousePos)
 
 for (var i=0; i<dropZones.length; i++) {
   dropZones[i].addEventListener('dragenter', handleDragEnter);
