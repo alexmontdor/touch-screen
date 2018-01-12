@@ -3,10 +3,10 @@ var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
 var mousePos
 
+document.addEventListener('mousemove', getMousePos)
 element.addEventListener('dragstart', handleDragStart);
 element.addEventListener('dragend', handleDragEnd);
 element.addEventListener('drag', handleDrag);
-document.addEventListener('mousemove', getMousePos)
 
 for (var i=0; i<dropZones.length; i++) {
   dropZones[i].addEventListener('dragenter', handleDragEnter);
@@ -38,12 +38,14 @@ function mouseCoords(ev){
 
 function getMousePos (ev) {
   mousePos = mouseCoords(ev)
+  console.log ('mouse pos',mousePos)
 }
 
 function handleDrag (event) {
-  event.preventDefault();
   element.style.left = mousePos.x + offsetX + 'px';
   element.style.top = mousePos.y + offsetY + 'px';
+  event.preventDefault();
+  
 }
 
 
