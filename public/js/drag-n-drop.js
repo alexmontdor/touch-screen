@@ -38,13 +38,14 @@ function mouseCoords(ev){
 
 function getMousePos (ev) {
   mousePos = mouseCoords(ev)
-  console.log ('mouse pos',mousePos)
+  
+  element.style.left = mousePos.x + offsetX + 'px';
+  element.style.top = mousePos.y + offsetY + 'px';
 }
 
 function handleDrag (event) {
   document.addEventListener('mousemove', getMousePos)
-  element.style.left = mousePos.x + offsetX + 'px';
-  element.style.top = mousePos.y + offsetY + 'px';
+
   event.preventDefault();
   
 }
