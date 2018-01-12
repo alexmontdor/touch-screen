@@ -62,6 +62,7 @@ function handleDragLeave (event) {
 }
 
 function handleDragEnd (event) {
+  document.removeEventListener('mousemove', getMousePos)
   event.preventDefault();
   
 
