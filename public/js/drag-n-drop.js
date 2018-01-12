@@ -1,9 +1,15 @@
 var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
-var mousePos
 
-document.addEventListener('mousemove', getMousePos)
+document.addEventListener("dragover", function(e){
+  e = e || window.event;
+  var dragX = e.pageX, dragY = e.pageY;
+
+  element.style.left = dragX + offsetX + 'px';
+  element.style.top = dragY + offsetY + 'px';
+}, false);
+
 element.addEventListener('dragstart', handleDragStart);
 element.addEventListener('dragend', handleDragEnd);
 element.addEventListener('drag', handleDrag);
@@ -25,21 +31,6 @@ function handleDragStart (event) {
   event.dataTransfer.setData ('text', "Bozo is moved");        // compulsory with FireFox : text/plain
 }
 
-function mouseCoords(ev){ 
-    if(ev.pageX || ev.pageY){ 
-        return {x:ev.pageX, y:ev.pageY}; 
-    } 
-	    return { 
-	        x:ev.clientX + document.body.scrollLeft - document.body.clientLeft, 
-	        y:ev.clientY + document.body.scrollTop  - document.body.clientTop 
-	    }; 
-	}
-
-function getMousePos (ev) {
-  mousePos = mouseCoords(ev)
-  
-
-}
 
 function handleDrag (event) {
   
@@ -59,12 +50,9 @@ function handleDragLeave (event) {
 }
 
 function handleDragEnd (event) {
-  element.style.left = mousePos.x + offsetX + 'px';
-  element.style.top = mousePos.y + offsetY + 'px';
-  event.preventDefault();
-  
 
-  
+  event.preventDefault();
+    
 }
 
 function handleDrop (event) {
