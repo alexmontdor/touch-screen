@@ -44,7 +44,7 @@ function handleDragLeave (event) {
 }
 
 function handleDragEnd (event) {
-  console.log (event)
+  console.log (event.screenX, posElement.x)
   element.style.left = event.screenX-posElement.x + offsetX + 'px';
   element.style.top = event.screenY-posElement.y + offsetY + 'px';
   event.preventDefault();
@@ -53,7 +53,6 @@ function handleDragEnd (event) {
 
 function handleDrop (event) {
   //event.preventDefault();
-  console.log(event);
   alert(event.dataTransfer.getData('text'));
 }
 
