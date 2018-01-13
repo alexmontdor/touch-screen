@@ -2,13 +2,14 @@ var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
 
+var dragX, dragY;
+
 window.onmouseup = function(e){
   e = e || window.event;
-  var dragX = e.clientX, dragY = e.clientY;
+  dragX = e.clientX;
+  dragY = e.clientY;
 
-  console.log ('pos', dragX, dragY)
-  element.style.left = dragX + offsetX + 'px';
-  element.style.top = dragY + offsetY + 'px';
+
 };
 
 element.addEventListener('dragstart', handleDragStart);
@@ -51,7 +52,9 @@ function handleDragLeave (event) {
 }
 
 function handleDragEnd (event) {
-
+  
+  element.style.left = dragX + offsetX + 'px';
+  element.style.top = dragY + offsetY + 'px';
   event.preventDefault();
     
 }
