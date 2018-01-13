@@ -2,10 +2,11 @@ var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
 
-document.onmousemove = function(e){
+window.onmousemove = function(e){
   e = e || window.event;
   var dragX = e.clientX, dragY = e.clientY;
 
+  console.log ('pos', dragX, dragY)
   element.style.left = dragX + offsetX + 'px';
   element.style.top = dragY + offsetY + 'px';
 };
