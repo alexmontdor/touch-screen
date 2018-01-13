@@ -52,7 +52,7 @@ function handleDragLeave (event) {
 }
 
 function handleDragEnd (event) {
-  
+  console.log (event)
   element.style.left = dragX + offsetX + 'px';
   element.style.top = dragY + offsetY + 'px';
   event.preventDefault();
