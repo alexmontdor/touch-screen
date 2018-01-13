@@ -18,8 +18,8 @@ for (var i=0; i<dropZones.length; i++) {
 function handleDragStart (event) {
   
   var el = (event.targetTouches)? event.targetTouches[0] : event;
-  posElement.x = container.screenX;
-  posElement.y = container.screenY;
+  posElement.x = window.screenX + container.offsetLeft;
+  posElement.y = window.screenY + container.offsetTop;
 
   offsetX= element.offsetLeft - el.pageX;
   offsetY= element.offsetTop - el.pageY;
