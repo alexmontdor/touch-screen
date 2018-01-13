@@ -2,13 +2,13 @@ var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
 
-document.addEventListener("dragover", function(e){
+document.onmousemove = function(e){
   e = e || window.event;
-  var dragX = e.pageX, dragY = e.pageY;
+  var dragX = e.clientX, dragY = e.clientY;
 
   element.style.left = dragX + offsetX + 'px';
   element.style.top = dragY + offsetY + 'px';
-}, false);
+};
 
 element.addEventListener('dragstart', handleDragStart);
 element.addEventListener('dragend', handleDragEnd);
