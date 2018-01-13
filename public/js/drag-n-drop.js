@@ -29,9 +29,7 @@ function handleDragStart (event) {
 
 
 function handleDrag (event) {
-  
   event.preventDefault();
-  
 }
 
 
@@ -47,8 +45,8 @@ function handleDragLeave (event) {
 
 function handleDragEnd (event) {
   console.log (event)
-  element.style.left = event.screenX + offsetX + 'px';
-  element.style.top = event.screenY + offsetY + 'px';
+  element.style.left = event.screenX-posElement.x + offsetX + 'px';
+  element.style.top = event.screenY-posElement.y + offsetY + 'px';
   event.preventDefault();
     
 }
