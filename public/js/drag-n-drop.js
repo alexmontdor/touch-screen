@@ -1,7 +1,7 @@
 var offsetX, offsetY;
 var element = document.getElementById('drag-bozo');
 var dropZones = document.getElementsByClassName('droppable');
-var container = document.getElementsByClassName('container');
+var container = document.getElementsByClassName('container')[0];
 
 var posElement= {x:0, y:0}
 element.addEventListener('dragstart', handleDragStart);
