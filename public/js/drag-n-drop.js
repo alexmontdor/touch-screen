@@ -45,8 +45,8 @@ function handleDragLeave (event) {
 }
 
 function handleDragEnd (event) {
-  element.style.left = event.screenX + posElement.x + offsetX + 'px';
-  element.style.top = event.screenY + posElement.y + offsetY + 'px';
+  element.style.left = event.screenX - posElement.x + offsetX + 'px';
+  element.style.top = event.screenY - posElement.y + offsetY + 'px';
   console.log (element.style.left, event.screenX, posElement.x, offsetX)
   
   event.preventDefault();
