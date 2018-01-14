@@ -3,7 +3,7 @@ var containerMoving = document.getElementById('mmoving')
 
 var container = document.getElementById('container')
 var draggable = document.getElementById('draggable')
-var dropzone = document.getElementById('dropzone')
+//var dropzone = document.getElementById('dropzone')
 var draggedElement
 
 var dragX = 0,
@@ -95,6 +95,17 @@ function drop (e) {
 
     if (e.target.classList.contains("dropzone") ) {
         e.target.appendChild( document.getElementById(elementId)  );
+        var newElem = document.createElement('p');
+        var text
+        if (e.target.classList.contains("box-shop"))
+            text = '$$$! bozo is in the shop';
+        if (e.target.classList.contains("box-circus"))
+            text = 'Yeah! bozo is in the circus';
+        if (e.target.classList.contains("box-jail"))
+            text = 'oh no! bozo is in the jail';
+
+        var node = document.createTextNode(text);
+        e.target.appendChild(newElem);
     }
 };
 
