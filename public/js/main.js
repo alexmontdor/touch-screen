@@ -42,7 +42,7 @@ var dragX = 0,
 
 draggable.addEventListener('dragstart', function(e) {
     e.dataTransfer.setData('id',this.id);
-    document.body.ondragover = function(event) {
+    document.ondragover = function(event) {
         event = event || window.event;
         mouse.position = {
             x : event.pageX,
@@ -97,6 +97,14 @@ document.addEventListener('dragleave', function(e) {
 document.addEventListener("dragend", function( event ) {
 }, false);
 
+draggable.addEventListener('touchmove', function(e) {
+    mouse.position = {
+        x : e.pageX,
+        y : e.pageY
+    }
+
+draggedElement = this
+}, false)
 
 document.addEventListener("dragover", function( event ) {
     // prevent default to allow drop
