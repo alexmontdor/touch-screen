@@ -97,17 +97,13 @@ document.addEventListener('dragleave', function(e) {
 document.addEventListener("dragend", function( event ) {
 }, false);
 
-draggable.addEventListener('touchmove', function(e) {
+
+document.addEventListener("dragover", function( event ) {
+    // prevent default to allow drop
     mouse.position = {
         x : e.pageX,
         y : e.pageY
     }
-
-draggedElement = this
-}, false)
-
-document.addEventListener("dragover", function( event ) {
-    // prevent default to allow drop
     event.preventDefault();
 }, false);
 
