@@ -95,7 +95,7 @@ function drop (e) {
 
     if (e.target.classList.contains("dropzone") ) {
         e.target.appendChild( document.getElementById(elementId)  );
-        var newElem = document.createElement('p');
+        //var newElem = document.createElement('p');
         var text
         if (e.target.classList.contains("box-shop"))
             text = '$$$! bozo is in the shop';
@@ -105,7 +105,7 @@ function drop (e) {
             text = 'oh no! bozo is in the jail';
 
         var node = document.createTextNode(text);
-        e.target.appendChild(newElem);
+        e.target.appendChild(node);
     }
 };
 
