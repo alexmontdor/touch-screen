@@ -93,11 +93,11 @@ document.addEventListener('dragleave', function(e) {
     }
 }, false)
 
-document.addEventListener("dragend", function( event ) {
+document.addEventListener("dragend", function( e ) {
 }, false);
 
 
-document.addEventListener("dragover", function( event ) {
+document.addEventListener("dragover", function( e ) {
     // prevent default to allow drop
     mouse.position = {
         x : e.pageX,
