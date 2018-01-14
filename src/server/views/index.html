@@ -1,13 +1,16 @@
 <header>
     <link rel="stylesheet" href="css/style.css">
 </header>
-<h1>Touch screen test</h1>
-<div class="container">
-    <div class="box-shop droppable"></div>
-    <div class="box-circus droppable"></div>
-    <div class="box-jail droppable"></div>
-    <div id='drag-bozo' class="bozo" draggable="true"></div>
-</div>
-<span id="pos"></span>
+<body>
+    <div id = "container" class="container">
+        <div id="dropzone" class="dropzone"></div>
+        <did id="draggable" class="draggable" draggable="true"></did>
+    </div>
+    <div class="dashboard">
+        Mouse Pressed<p id="mpressed"></p>
+        Mouse Moving<p id="mmoving"></p>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/DragDropTouch.js"></script>
 
-<script src="js/main.js"></script>
+</body>
