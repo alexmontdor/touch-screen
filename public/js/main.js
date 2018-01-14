@@ -46,12 +46,12 @@ document.addEventListener('dragenter', dragEnter, false)
 document.addEventListener('dragleave', dragLeave, false)
 document.addEventListener("drop", drop, false)
 
-dragStart = (e) => {
+function dragStart(e) {
     e.dataTransfer.setData('id',this.id); // required by Mozilla
     draggedElement = this
 }
 
-dragEnter = (e) => {
+function dragEnter(e) {
     var target = null
 
     if (e.target.parentNode.classList.contains('dropzone'))
@@ -65,7 +65,7 @@ dragEnter = (e) => {
     }
 }
 
-dragLeave =(e)=> {
+function dragLeave (e) {
 
     var target = null
     if (e.target.parentNode.classList.contains('dropzone'))
@@ -78,7 +78,7 @@ dragLeave =(e)=> {
     }
 }
 
-dragOver = (e) => {
+function dragOver(e) {
     mouse.position = {
         x : e.pageX,
         y : e.pageY
@@ -89,7 +89,7 @@ dragOver = (e) => {
     e.preventDefault();
 }
 
-drop = (e) => {
+function drop (e) {
     e.preventDefault();
     var elementId = e.dataTransfer.getData("id");
 
@@ -103,14 +103,14 @@ drop = (e) => {
  * display function
  * 
  */
-displayPressed = ()=>{
+function displayPressed (){
     if (mouse.pressed)
         containerPressed.innerHTML="Button pressed @ "+ mouse.objectOffset.x + " / " + mouse.objectOffset.y
     else
         containerPressed.innerHTML="Button released"
 }
 
-displayMoving =  ()=> {
+function displayMoving () {
     if (mouse.pressed){
         containerMoving.innerHTML = 'x: ' + mouse.position.x + 'y: '+mouse.position.y;
     }
