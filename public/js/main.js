@@ -42,20 +42,19 @@ var dragX = 0,
 
 draggable.addEventListener('dragstart', function(e) {
     e.dataTransfer.setData('id',this.id);
-    document.ondragover = function(event) {
+/*     document.ondragover = function(event) {
         event = event || window.event;
         mouse.position = {
             x : event.pageX,
             y : event.pageY
         }
-    };
+    }; */
     draggedElement = this
 }, false)
 
 
 document.addEventListener('drag', function(e){
 
- displayMoving(this)
 
 }, false)
 
@@ -104,6 +103,8 @@ document.addEventListener("dragover", function( event ) {
         x : e.pageX,
         y : e.pageY
     }
+ displayMoving(this)
+    
     event.preventDefault();
 }, false);
 
