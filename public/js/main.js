@@ -105,7 +105,7 @@ document.addEventListener("dragover", function( e ) {
     }
  displayMoving(this)
     
-    event.preventDefault();
+    e.preventDefault();
 }, false);
 
 document.addEventListener("drop", (e) => {
