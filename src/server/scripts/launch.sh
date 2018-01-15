@@ -1,4 +1,3 @@
-# http://paislee.io/the-ultimate-nodejs-development-setup-with-docker/
 #!/bin/bash
 
 CONTAINER_NAME=NODE_SERVER_DEV  

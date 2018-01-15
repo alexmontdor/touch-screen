@@ -45,7 +45,7 @@
 }
 
 
-@media (max-width: 600px) {
+@media (min-width: 401px) {
 
     .container { 
         position: relative;
@@ -91,7 +91,7 @@
 
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 800px) {
 
     .container { 
         position: relative;
