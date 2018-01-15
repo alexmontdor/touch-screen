@@ -62,6 +62,7 @@ the soft has been tested on an Android Phone (Samsung)
 # Usefull links
 * [Drag n Drop Bernardo Castilho's github](https://github.com/Bernardo-Castilho/dragdroptouch/) - Drag n Drop Polyfill
 * [Setting up a docker container by Caleb Sotelo](http://paislee.io/the-ultimate-nodejs-development-setup-with-docker/) - Caleb's blog article - My code follow for most of it this article
+* [How to install and use docker by Tammy Fox](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04) - Tammy's blog article  - I have not follow this one but the information are well explained and still the article remains basic
 
 
 
