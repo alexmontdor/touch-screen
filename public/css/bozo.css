@@ -1,0 +1,145 @@
+@media (max-width: 400px) {
+
+    .container { 
+        position: relative;
+        width :400px;
+        height:500px;
+    }
+    
+    .bozo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100px;
+        width: 100px;
+        background-image: url('/img/bozo.jpg');
+        background-size: 100px 100px;
+    }
+    
+    
+    .box-shop {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: green;
+     }
+    .box-circus {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background-color: blue;
+     }
+    .box-jail { 
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: brown;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .container { 
+        position: relative;
+        width :600px;
+        height:500px;
+    }
+    
+    .bozo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100px;
+        width: 100px;
+        background-image: url('/img/bozo.jpg');
+        background-size: 100px 100px;
+    }
+    
+    
+    .box-shop {
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: green;
+     }
+    .box-circus {
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: blue;
+     }
+    .box-jail { 
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: brown;
+    }
+
+}
+
+@media (max-width: 1200px) {
+
+    .container { 
+        position: relative;
+        width :1000px;
+        height:750px;
+    }
+    
+    .bozo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 150px;
+        width: 150px;
+        background-image: url('/img/bozo.jpg');
+        background-size: 150px 150px;
+    }
+    
+    
+    .box-shop {
+        height: 300px;
+        width: 300px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: green;
+     }
+    .box-circus {
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: blue;
+     }
+    .box-jail { 
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: brown;
+    }
+
+}
+
+.droppable {
+}
+
+.enterDropZone {
+    background: lime;
+}

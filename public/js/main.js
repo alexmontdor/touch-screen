@@ -3,8 +3,12 @@ var containerMoving = document.getElementById('mmoving')
 
 var container = document.getElementById('container')
 var draggable = document.getElementById('draggable')
-var dropzone = document.getElementById('dropzone')
+//var dropzone = document.getElementById('dropzone')
 var draggedElement
+
+var dragX = 0,
+    dragY = 0;
+
 mouse = { 
     pressed:false,
     position: {
@@ -16,9 +20,6 @@ mouse = {
         y:0
     }
 }
-
-/* create_gets_sets(mousePressed);
-listen_to(mousePressed, status, displayPressed()); */
 
 /**
  * Management Button management
@@ -37,31 +38,20 @@ document.onmouseup = function(doc, e){
     displayPressed ()
 }
 
-var dragX = 0,
-    dragY = 0;
+draggable.addEventListener('dragstart',dragStart , false)
+document.addEventListener('drag', (e)=>{}, false)
+document.addEventListener('dragend', (e)=>{}, false)
+document.addEventListener("dragover", dragOver, false);
+document.addEventListener('dragenter', dragEnter, false)
+document.addEventListener('dragleave', dragLeave, false)
+document.addEventListener("drop", drop, false)
 
-draggable.addEventListener('dragstart', function(e) {
-    e.dataTransfer.setData('id',this.id);
-/*     document.ondragover = function(event) {
-        event = event || window.event;
-        mouse.position = {
-            x : event.pageX,
-            y : event.pageY
-        }
-    }; */
+function dragStart(e) {
+    e.dataTransfer.setData('id',this.id); // required by Mozilla
     draggedElement = this
-}, false)
+}
 
-
-document.addEventListener('drag', function(e){
-
-
-}, false)
-
-document.body.addEventListener('dragend', function(e){
-}, false)
-     
-document.addEventListener('dragenter', function(e) {
+function dragEnter(e) {
     var target = null
 
     if (e.target.parentNode.classList.contains('dropzone'))
@@ -72,14 +62,10 @@ document.addEventListener('dragenter', function(e) {
     
     if (target) {
         target.classList.add('over');
-
     }
-    
-}, false)
+}
 
-
-
-document.addEventListener('dragleave', function(e) {
+function dragLeave (e) {
 
     var target = null
     if (e.target.parentNode.classList.contains('dropzone'))
@@ -89,35 +75,45 @@ document.addEventListener('dragleave', function(e) {
     
     if (target) {
         target.classList.remove('over');
-
     }
-}, false)
+}
 
-document.addEventListener("dragend", function( e ) {
-}, false);
-
-
-document.addEventListener("dragover", function( e ) {
-    // prevent default to allow drop
+function dragOver(e) {
     mouse.position = {
         x : e.pageX,
         y : e.pageY
     }
- displayMoving(this)
+    displayMoving(this)
     
+    // prevent default to allow drop
     e.preventDefault();
-}, false);
+}
 
-document.addEventListener("drop", (e) => {
+function drop (e) {
     e.preventDefault();
     var elementId = e.dataTransfer.getData("id");
 
     if (e.target.classList.contains("dropzone") ) {
         e.target.appendChild( document.getElementById(elementId)  );
-    }
-  
-}, false);
+        //var newElem = document.createElement('p');
+        var text
+        if (e.target.classList.contains("box-shop"))
+            text = '$$$! bozo is in the shop';
+        if (e.target.classList.contains("box-circus"))
+            text = 'Yeah! bozo is in the circus';
+        if (e.target.classList.contains("box-jail"))
+            text = 'oh no! bozo is in the jail';
 
+        var node = document.createTextNode(text);
+        e.target.appendChild(node);
+    }
+};
+
+
+/**
+ * display function
+ * 
+ */
 function displayPressed (){
     if (mouse.pressed)
         containerPressed.innerHTML="Button pressed @ "+ mouse.objectOffset.x + " / " + mouse.objectOffset.y
